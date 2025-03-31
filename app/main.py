@@ -3,6 +3,15 @@ from fastapi.responses import FileResponse, JSONResponse
 from app.video_processor import process_video
 from app.models import SessionLocal, VideoEvent
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # for testing; later restrict
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app = FastAPI()
 
